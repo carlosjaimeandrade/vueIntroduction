@@ -1,13 +1,23 @@
 <template>
     <div>
-        <h2>Cliente</h2>
-        <input type="text">
+        
+        <h1>{{ email }}</h1>
+        <h2>Cliente {{ nome }} idade {{ idade }}</h2>
+
+        <input :value="nome" type="text">
+        
     </div>
 </template>
 
 <script>
 export default {
-
+    data(){
+        return {
+            nome: "Carlos",
+            idade: 25, 
+            email: "jaime_andrek@hotmail.com"
+        }
+    }
 }
 </script>
 
