@@ -2,8 +2,8 @@
   <div id="app">
     <Cliente />
     <input v-model="codigoPai" type="text">
-    <Produto :showQuantidade="false" :codigo="codigoPai" nome="Pendrive" quantidade="20" />
-    <Produto :showQuantidade="true" codigo="AS5442" nome="CD" quantidade="2" />
+    <Produto :tipo="true" :showQuantidade="false" :codigo="codigoPai" nome="Pendrive" quantidade="20" />
+    <Produto :tipo="false" :showQuantidade="true" codigo="AS5442" nome="CD" quantidade="2" />
   </div>
 </template>
 

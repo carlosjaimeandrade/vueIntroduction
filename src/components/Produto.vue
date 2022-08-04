@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="{'admin': tipo, 'normal': !tipo}">
         <div>
             <h2>produto {{ codigo }}</h2>
             <p v-show="showQuantidade === true">Aqui é com o v-show</p>
@@ -16,10 +16,17 @@ export default {
         nome: String,
         quantidade: Number,
         codigo: String,
-        showQuantidade: Boolean
+        showQuantidade: Boolean,
+        tipo: Boolean
     }
 }
 </script>
 
 <style>
+.admin{
+    background-color: red;
+}
+.normal{
+    background-color: aqua;
+}
 </style>
