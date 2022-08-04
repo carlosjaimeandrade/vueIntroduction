@@ -1,12 +1,11 @@
 <template>
     <div>
-
         <h1>{{ email }}</h1>
-        <h2>Cliente {{ nome }} idade {{ idade }}</h2>
-
+        <p>Cliente {{ nome }}</p>
+        <p>idade {{ idade }}</p>
         <input :value="nome" type="text">
-        <hr>
         <input v-model="nome" type="text">
+        <hr>
     </div>
 </template>
 

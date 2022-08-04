@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <h1>Ola </h1>
     <Cliente />
-    <Produto />
+    <Produto codigo="AS5441" nome="Pendrive" quantidade="20" />
+    <Produto codigo="AS5442" nome="CD" quantidade="2" />
   </div>
 </template>
 
