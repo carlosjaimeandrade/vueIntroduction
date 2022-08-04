@@ -2,7 +2,9 @@
     <div>
         <div>
             <h2>produto {{ codigo }}</h2>
-            <p>Nome: {{ nome }}</p>
+            <p v-show="showQuantidade === true">Aqui é com o v-show</p>
+            <p v-if="showQuantidade === true">Nome: {{ nome }}</p>
+            <p v-else>Escondeu o nome</p>
             <p>Quantidade: {{ quantidade }}</p>
         </div>
     </div>
@@ -13,7 +15,8 @@ export default {
     props: {
         nome: String,
         quantidade: Number,
-        codigo: String
+        codigo: String,
+        showQuantidade: Boolean
     }
 }
 </script>
