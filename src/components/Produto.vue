@@ -25,12 +25,6 @@ export default {
         codigo: String,
         showQuantidade: Boolean,
         tipo: Boolean
-    },
-    methods: {
-        mudarStatus: function ($event){
-            console.log($event.target.parentNode.children[0].innerHTML);
-            this.status = !this.status
-        }
     }
 }
 </script>

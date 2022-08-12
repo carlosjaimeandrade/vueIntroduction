@@ -2,9 +2,15 @@
   <div id="app">
     <Cliente />
     <input v-model="codigoPai" type="text">
-    <Produto :tipo="true" :showQuantidade="false" :codigo="codigoPai" nome="Pendrive" quantidade="20" />
-    <Produto :tipo="false" :showQuantidade="true" codigo="AS5442" nome="CD" quantidade="2" />
 
+    <hr>
+        <h1>Cadastro de produtos</h1>
+        <input v-model="nomeField" type="text" placeholder="nome"> <br>
+        <input v-model="codigoField" type="text" placeholder="codigo"> <br>
+        <button @click="cadastrandoProduto()">Cadastrar</button>
+    <hr>
+
+   
     <div v-for="(produto, index) in produtos" :key="produto.id">
       <p>{{index}}</p>
       <input v-model="produto.nome" type="text">
@@ -22,6 +28,8 @@ export default {
   name: 'App',
   data() {
     return {
+      nomeField: "",
+      codigoField: "",
       codigoPai: "55458",
       produtos: [
         {
@@ -31,8 +39,8 @@ export default {
         },
         {
           id: 2,
-          nome: "Pendrive",
-          codigo: "2323"
+          nome: "Celular",
+          codigo: "44545"
         }
       ],
     }
@@ -40,7 +48,13 @@ export default {
   components: {
     Cliente,
     Produto
-  }
+  },
+    methods: {
+        cadastrandoProduto: function() {
+            this.produtos.push({id: Date.now(), nome: this.nomeField, codigo: this.codigoField})
+            console.log(this.produtos)
+        }
+    }
 }
 
 </script>
