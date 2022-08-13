@@ -5,7 +5,8 @@
 
     <hr>
         <h1>Cadastro de produtos</h1>
-        <input v-model="nomeField" type="text" placeholder="nome"> <br>
+        <span v-show="erroNome">Você precisa preencher o nome</span> <br>
+        <input :class="{'errorInput': erroNome}" v-model="nomeField" type="text" placeholder="nome"> <br>
         <input v-model="codigoField" type="text" placeholder="codigo"> <br>
         <button @click="cadastrandoProduto()">Cadastrar</button>
     <hr>
@@ -28,6 +29,7 @@ export default {
   name: 'App',
   data() {
     return {
+      erroNome: false,
       nomeField: "",
       codigoField: "",
       codigoPai: "55458",
@@ -51,6 +53,13 @@ export default {
   },
     methods: {
         cadastrandoProduto: function() {
+            if(this.nomeField == ""){
+              this.erroNome = true;
+              setTimeout(()=>{
+                this.erroNome = false;
+              },5000)
+              return
+            }
             this.produtos.push({id: Date.now(), nome: this.nomeField, codigo: this.codigoField})
             console.log(this.produtos)
         }
@@ -60,4 +69,7 @@ export default {
 </script>
 
 <style>
+  .errorInput{
+    border: 1px solid red;
+  }
 </style>
