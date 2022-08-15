@@ -8,6 +8,7 @@
             <p>Quantidade: {{ quantidade }}</p>
             <p>{{status}}</p>
             <button @click="mudarStatus($event)">{{status == true ? "desativar" : "ativar"}}</button>
+            <button  :id="codigo" @click="emitirEventos($event)">Deletar</button>
         </div>
     </div>
 </template>
@@ -25,6 +26,11 @@ export default {
         codigo: String,
         showQuantidade: Boolean,
         tipo: Boolean
+    },
+    methods: {
+        emitirEventos: function ($event) {
+            this.$emit('meDeleted',{id: $event.target.id, component: this});
+        }
     }
 }
 </script>
