@@ -3,10 +3,10 @@
         <div>
             <h2>produto {{ codigo }}</h2>
             <p v-show="showQuantidade === true">Aqui é com o v-show</p>
-            <p v-if="showQuantidade === true">Nome: {{ nome }}</p>
+            <p v-if="showQuantidade === true">Nome: {{ processarNome }}</p>
             <p v-else>Escondeu o nome</p>
             <p>Quantidade: {{ quantidade }}</p>
-            <p>{{status}}</p>
+            <p></p>
             <button @click="mudarStatus($event)">{{status == true ? "desativar" : "ativar"}}</button>
             <button  :id="codigo" @click="emitirEventos($event)">Deletar</button>
         </div>
@@ -30,6 +30,11 @@ export default {
     methods: {
         emitirEventos: function ($event) {
             this.$emit('meDeleted',{id: $event.target.id, component: this});
+        }
+    },
+    computed:{
+        processarNome: function(){
+            return this.nome.toUpperCase();
         }
     }
 }
