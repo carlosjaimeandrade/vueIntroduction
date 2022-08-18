@@ -12,7 +12,7 @@
     <hr>
 
    
-    <div v-for="(produto, index) in produtos" :key="produto.id">
+    <div v-for="(produto, index) in orderProdutos" :key="produto.id">
       <p>{{index}}</p>
       <input v-model="produto.nome" type="text">
       <Produto @meDeleted="deletarUser" :tipo="true" :showQuantidade="true" :codigo="produto.codigo" :nome="produto.nome" quantidade="20" />
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import _ from 'lodash';
 import Cliente from './components/Cliente'
 import Produto from './components/Produto'
 
@@ -41,7 +42,7 @@ export default {
         },
         {
           id: 2,
-          nome: "Celular",
+          nome: "x",
           codigo: "5"
         }
       ],
@@ -69,6 +70,11 @@ export default {
             return produto.codigo != obj.id
           })
         }
+    },
+    computed:{
+      orderProdutos: function (){
+        return _.orderBy(this.produtos, ['id'], ['desc'])
+      }
     }
 }
 
